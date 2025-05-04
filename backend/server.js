@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
 
-import traitsRouter from "./routes/traits.js"; // <- import your router
+import namesRouter from "./routes/names.js"; // <- import your router
 
 dotenv.config();
 
@@ -15,8 +15,8 @@ mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("✅ Connected to MongoDB"))
   .catch(err => console.error("❌ MongoDB connection error:", err));
 
-app.use("/traits", traitsRouter); // <- mount your router
+app.use("/names", namesRouter); // <- mount your router
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
 
